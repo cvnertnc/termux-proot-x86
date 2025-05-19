@@ -1,25 +1,27 @@
 #!/bin/bash
 
+# Choice of architecture
 echo "Select your architecture:"
 echo "1) amd64 / x86_64"
 echo "2) i686 / x86"
 echo "3) Both (amd64 and i686)"
-read -p "Enter your choice (1, 2 or 3): " choice
+printf "Enter your choice (1, 2 or 3): "
+read choice < /dev/tty  # stdin'i açıkça tty'den oku
 
-# General update
+# Upgrade
 echo "Updating packages..."
 apt update -y && apt upgrade -y
 
 # Common dependencies
 apt install git blink proot-distro dos2unix -y
 
-# Clone the repo once
+# Clone repo (skip if you already have one)
 if [ ! -d "termux-proot-x86" ]; then
     git clone https://github.com/cvnertnc/termux-proot-x86
 fi
 cd termux-proot-x86 || exit 1
 
-# Function for amd64 setup
+# AMD64 Installation
 setup_amd64() {
     echo "Installing for amd64 / x86_64..."
     apt install qemu-user-x86-64 -y
@@ -27,7 +29,7 @@ setup_amd64() {
     dos2unix $PREFIX/etc/proot-distro/*-x86_64.sh > /dev/null
 }
 
-# Function for i686 setup
+# i686 installation
 setup_i686() {
     echo "Installing for i686 / x86..."
     apt install qemu-user-i386 -y
@@ -37,12 +39,8 @@ setup_i686() {
 
 # Operation by selection
 case "$choice" in
-    1)
-        setup_amd64
-        ;;
-    2)
-        setup_i686
-        ;;
+    1) setup_amd64 ;;
+    2) setup_i686 ;;
     3)
         setup_amd64
         setup_i686
