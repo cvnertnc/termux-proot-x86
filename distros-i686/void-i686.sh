@@ -1,8 +1,8 @@
 DISTRO_NAME="Void Linux i686"
 DISTRO_ARCH="i686"
 
-TARBALL_URL['i686']="https://github.com/termux/proot-distro/releases/download/v4.6.0/void-i686-pd-v4.6.0.tar.xz"
-TARBALL_SHA256['i686']="8fa3b582ebf6c06603b975f1f7a95bac0d0c971ce79caae4c68fd9b9dc39fd1e"
+TARBALL_URL['i686']="https://github.com/termux/proot-distro/releases/download/v4.22.1/void-i686-pd-v4.22.1.tar.xz"
+TARBALL_SHA256['i686']="69903dd6ea907a17a3be43ef8163d8146227c557919058b9b014102a857f8dfa"
 
 distro_setup() {
 	# Set default shell to bash.
