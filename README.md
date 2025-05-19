@@ -5,27 +5,28 @@ Getting x86_64 and i686 PRoot Env working in Termux with proot-distro and qemu-u
 
 To run proot-distro with blink use `PROOT_DISTRO_X64_EMULATOR=BLINK`.
 
-## The Commands
+## One-Line Installation
 
-1. Updating Packages
-
-```bash
-apt update -y && apt upgrade -y
-```
-
-2. (i686/x86) Installing
+Just run the following command and choose your architecture from the menu:
 
 ```bash
-apt install git qemu-user-i386 blink proot-distro -y && git clone https://github.com/cvnertnc/termux-proot-x86 && cd termux-proot-x86 && bash ./distroi686.sh
+curl -LSs "https://raw.githubusercontent.com/cvnertnc/termux-proot-x86/main/setup.sh" | bash
 ```
-3. (amd64/x86_64) Installing
+
+You'll be prompted to select:
+
+1. **amd64 / x86\_64**
+2. **i686 / x86**
+3. **Both architectures**
+
+After setup, you can list and install available distros with:
 
 ```bash
-apt install git qemu-user-x86-64 blink proot-distro -y && git clone https://github.com/cvnertnc/termux-proot-x86 && cd termux-proot-x86 && bash ./distrox86_64.sh
+proot-distro list
+proot-distro install <distro-name>
 ```
-
-4. Well done.
 
 ## Thanks
-[mcagabe19](https://github.com/mcagabe19)  
+
+[mcagabe19](https://github.com/mcagabe19)
 [HomuHomu833](https://github.com/HomuHomu833)
