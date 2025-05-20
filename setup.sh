@@ -43,7 +43,7 @@ cleanup_all() {
     rm -f $PREFIX/etc/proot-distro/*-i686.sh
 
     # Optional: Remove installed packages
-    pkg uninstall qemu-user-x86-64 qemu-user-i386 blink proot-distro git dos2unix -y
+    pkg uninstall qemu-user-x86-64 qemu-user-i386 blink dos2unix -y
 
     echo "Cleanup complete."
     exit 0
