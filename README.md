@@ -18,6 +18,7 @@ You'll be prompted to select:
 1. **amd64 / x86\_64**
 2. **i686 / x86**
 3. **Both architectures**
+4. **Uninstall everything and clean up**
 
 After setup, you can list and install available distros with:
 
